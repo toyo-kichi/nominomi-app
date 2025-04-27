@@ -1,9 +1,11 @@
-
+import DrawPage from "./Pages/DrawPage";
 
 function App() {
- <div>
-
- </div>
+  return (
+    <div>
+      <DrawPage />
+    </div>
+  );
 }
 
-export default App
+export default App;

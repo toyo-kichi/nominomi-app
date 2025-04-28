@@ -9,7 +9,15 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
+
 const categories = ["場所", "テーマ", "禁止ワード", "ドレスコード"];
+
+const resultBgColors: { [key: string]: string } = {
+  場所: "yellow.300",
+  テーマ: "pink.300",
+  禁止ワード: "red.300",
+  ドレスコード: "purple.300",
+};
 
 const firstData = {
   場所: "居酒屋",
@@ -65,17 +73,27 @@ const DrawPage = () => {
               borderWidth="1px"
               borderRadius="md"
               boxShadow="md"
-              minH="150px"
+              // minH="150px"
+              // w="100%"
               // p={4}
             >
-              <Flex align="center" justify="center" direction="column" h="full">
-                <Text fontWeight="bold" mb={2}>
+              <Box p={2} textAlign="center">
+                <Text fontWeight="bold" fontSize="xl" mb={2}>
                   {cat}
                 </Text>
-                <Text fontSize="xl" color="teal.500" wordBreak="break-word">
+              </Box>
+              <Box
+                bg={resultBgColors[cat] || "gray.100"}
+                p={4}
+                textAlign="center"
+                borderBottomLeftRadius="md"
+                borderBottomRightRadius="md"
+              >
+                <Fade></Fade>
+                <Text fontSize="xl" fontWeight="normal" wordBreak="break-word">
                   {loading ? "..." : results[cat] || "?"}
                 </Text>
-              </Flex>
+              </Box>
             </Box>
           ))}
         </SimpleGrid>

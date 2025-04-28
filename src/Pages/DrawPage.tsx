@@ -89,7 +89,6 @@ const DrawPage = () => {
                 borderBottomLeftRadius="md"
                 borderBottomRightRadius="md"
               >
-                <Fade></Fade>
                 <Text fontSize="xl" fontWeight="normal" wordBreak="break-word">
                   {loading ? "..." : results[cat] || "?"}
                 </Text>

@@ -1,3 +1,4 @@
+import { LoginForm } from "@/components/LoginForm";
 import {
   Box,
   Button,
@@ -20,29 +21,10 @@ const LoginPage = () => {
         borderRadius="lg"
         boxShadow="2xl"
       >
-        <Heading textAlign="center" mb={8} fontSize="3xl">のみのみアプリ</Heading>
-        <VStack gap={6} w="full">
-          <Box w="full">
-            <Text>グループID</Text>
-            <Input placeholder="グループIDを入力" />
-          </Box>
-          <Box w="full">
-            <Text >パスコード</Text>
-            <Input type="password" placeholder="パスコードを入力" />
-          </Box>
-          <Button
-            colorPalette="teal"
-            size="lg"
-            w="full"
-            borderRadius="3xl"
-            boxShadow="md"
-            fontWeight="extrabold"
-          >
-            ログインする
-          </Button>
-        </VStack>
-        {/* ここにエラー出す場所（仮） */}
-        <Text color="red" mt={2} textAlign="center">ログインに失敗しました</Text>
+        <Heading textAlign="center" mb={8} fontSize="3xl">
+          のみのみアプリ
+        </Heading>
+        <LoginForm />
       </Box>
     </Flex>
   );

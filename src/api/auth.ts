@@ -1,5 +1,5 @@
 export const login = async (groupId: string, passcode: string) => {
-  const response = await fetch("http://localhost:3001/login", {
+  const response = await fetch("http://localhost:3001/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ groupId, passcode }),

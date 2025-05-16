@@ -5,7 +5,12 @@ import { createGroup, findGroupById } from "../services/groupService";
 const router = express.Router();
 
 router.post("/create-group", async (req, res) => {
-  const { groupId, name, passcode } = req.body;
+  const { groupId, groupName, passcode } = req.body;
+
+  if (!groupId?.trim() || !groupName?.trim() || !passcode?.trim()) {
+    return res.status(400).json({ message: "すべての項目を入力してください" });
+  }
+
   try {
     const exsitingGroup = await findGroupById(groupId);
     if (exsitingGroup) {
@@ -14,7 +19,7 @@ router.post("/create-group", async (req, res) => {
         .json({ message: "このこのグループIDは存在します" });
     }
 
-    const newGroup = await createGroup(groupId, name, passcode);
+    const newGroup = await createGroup(groupId, groupName, passcode);
     return res.status(201).json(newGroup);
   } catch (err) {
     console.error("グループ作成エラー:", err);

@@ -4,13 +4,13 @@ const prisma = new PrismaClient();
 
 export const createGroup = async (
   groupId: string,
-  name: string,
+  groupName: string,
   passcode: string
 ) => {
   return await prisma.group.create({
     data: {
       id: groupId,
-      name,
+      name: groupName,
       passcode,
     },
   });

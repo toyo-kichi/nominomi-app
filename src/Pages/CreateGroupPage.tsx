@@ -21,6 +21,11 @@ export const CreateGroupPage = () => {
 
   const handleCreate = async () => {
     setError("");
+
+    if (!groupId.trim() || !groupName.trim() || !passcode.trim()) {
+      setError("すべての項目を入力してください");
+      return;
+    }
     try {
       await createGroup(groupId, groupName, passcode);
       navigate("/draw");

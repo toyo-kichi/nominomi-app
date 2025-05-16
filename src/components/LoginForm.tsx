@@ -1,6 +1,8 @@
-import { login } from "@/api/auth";
-import { Box, Button, Input, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
+
+import { Link as RouterLink } from "react-router-dom"; // 追加
+import { login } from "@/api/auth";
+import { Box, Button, Input, Link, Text, VStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
@@ -17,7 +19,7 @@ export const LoginForm = () => {
       console.log("ログイン成功！、トークン:", token);
       navigate("/draw");
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     }
   };
 
@@ -56,6 +58,15 @@ export const LoginForm = () => {
           {error}
         </Text>
       )}
+      <Text>
+        グループをまだお持ちでない方は{""}
+        <RouterLink
+          to="/create-group"
+          style={{ color: "teal", fontWeight: "bold" }}
+        >
+          新規グループ作成
+        </RouterLink>
+      </Text>
     </VStack>
   );
 };

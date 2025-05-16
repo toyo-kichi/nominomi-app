@@ -1,13 +1,5 @@
 import { LoginForm } from "@/components/LoginForm";
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Input,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
 const LoginPage = () => {
   return (

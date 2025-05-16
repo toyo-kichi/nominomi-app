@@ -23,7 +23,7 @@ export const CreateGroupPage = () => {
     setError("");
     try {
       await createGroup(groupId, groupName, passcode);
-      navigate("/login");
+      navigate("/draw");
     } catch (err) {
       setError("作成に失敗しました");
     }
